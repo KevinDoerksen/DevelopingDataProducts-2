@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Regression Model Shiny App</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Regression Model Shiny App">
+  <meta name="author" content="In honor of Billy Mays">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Regression Model Shiny App</h1>
+    <h2>Now with widgets!</h2>
+    <p>In honor of Billy Mays<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Regression modelling: the old way</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>A model of frustration</h3>
+
+<p>Do you still evaluate in your regression models by hand?  <span style="color:red; font-weight:bold">Good luck</span> calculating those coefficients!</p>
+
+<div>$$ Y_i = \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_p X_{Pi} + \epsilon_i = \sum_{k = 1}^{p} X_{ik}\beta_j + \epsilon_i$$</div>
+
+<hr>
+
+<p>Perhaps you use the R command line to evaluate your regression models?</p>
+
+<ul>
+<li>Half the time, you <span style="color:red; font-weight:bold">can&#39;t</span> remember the names of the variables! </li>
+<li>You have to try <span style="color:red; font-weight:bold">dozens</span> of different regression models!</li>
+<li>When you finally build a model, you face a <span style="color:red; font-weight:bold">wall of information</span> to interpret:</li>
+</ul>
+
+<pre><code class="r">summary(lm(rating ~ complaints, data = attitude))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>The old way: such a complicated output</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>## 
+## Call:
+## lm(formula = rating ~ complaints, data = attitude)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -12.8799  -5.9905   0.1783   6.2978   9.6294 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 14.37632    6.61999   2.172   0.0385 *  
+## complaints   0.75461    0.09753   7.737 1.99e-08 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.993 on 28 degrees of freedom
+## Multiple R-squared:  0.6813, Adjusted R-squared:  0.6699 
+## F-statistic: 59.86 on 1 and 28 DF,  p-value: 1.988e-08
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>The New Regression Model Shiny App</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>We have an app for that</h3>
+
+<ul>
+<li><p><span style="color:black; font-weight:bold">Easy to use</span></p>
+
+<ul>
+<li>Just select your predictor variables and press <span style="color:blue; font-weight:bold">Run Simulation</span></li>
+</ul></li>
+<li><p><span style="color:black; font-weight:bold">Efficient output:</span> you only see what you need</p>
+
+<ul>
+<li>The formula,</li>
+<li>A measure of the variance explained by your model,</li>
+<li>Residuals plots</li>
+</ul></li>
+<li><p><span style="color:black; font-weight:bold">Fast</span></p>
+
+<ul>
+<li>Don&#39;t like the linear model you chose?  Not to worry, select new predictor variables and re-run the simulation</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>But wait there&#39;s more!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This app is a good proof-of-concept app <span style="color:blue; font-weight:bold">ready</span> for expanded development</p>
+
+<ul>
+<li>We show that this design works well with the attitude dataset </li>
+<li>With enough interest, we can expand the app to work with any dataset</li>
+</ul>
+
+<p>But that&#39;s not all folks, because we&#39;re <span style="color:blue; font-weight:bold">doubling</span> the order!</p>
+
+<ul>
+<li>That&#39;s right!  You get two copies of the Shiny app with each order.
+
+<ul>
+<li><span style="color:lightgrey">Second app not included with some orders</span></li>
+</ul></li>
+</ul>
+
+<h3>Did someone say &quot;New car&quot;?</h3>
+
+<p>Be among the first 100 app testers and you will be entered in to a draw to <span style="color:blue; font-weight:bold">win a brand new car</span> <span style="color:lightgrey">door hinge!</span></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Regression modelling: the old way'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The old way: such a complicated output'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The New Regression Model Shiny App'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='But wait there&#39;s more!'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
